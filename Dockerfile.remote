@@ -1,0 +1,7 @@
+FROM python:3.11-slim
+RUN pip install shimarin[flask]==0.1.3 hypercorn==0.16.0
+WORKDIR /app
+ENV PYTHONUNBUFFERED=1
+COPY . .
+EXPOSE 2222
+ENTRYPOINT [ "python", "/app/remote.py" ]

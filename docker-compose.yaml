@@ -1,0 +1,16 @@
+services:
+  # remote:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.remote
+  #   ports:
+  #     - 2222:2222
+  #   env_file: .env
+  local:
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    env_file: .env
+    environment:
+      # SERVER_ENDPOINT: http://remote:2222
+      SERVER_ENDPOINT: http://api.kamuridesu.com/api/ocr
