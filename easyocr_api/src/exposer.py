@@ -53,7 +53,8 @@ async def result():
     if event.answered:
         return {
             "status": "done",
-            "text": event.answer["text"]
+            "text": event.answer["text"],
+            "precision": event.answer['precision']
         }
     return {
         "status": "processing",

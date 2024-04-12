@@ -30,9 +30,15 @@ async def process_captcha(event: Event):
         return event.reply("Image is empty!")
     img_decoded = b64decode(img.encode())
     processed_text = reader.readtext(img_decoded)
+    if len(processed_text) < 1:
+        return await event.reply({
+            "ok": False,
+            "text": "Failed to process captcha"
+        })
     return await event.reply({
         "ok": True,
-        "text": processed_text[0][1]
+        "text": processed_text[0][1],
+        "precision": processed_text[0][2]
     })
 
 
