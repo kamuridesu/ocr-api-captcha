@@ -4,4 +4,6 @@ RUN pip install -r requirements.txt
 WORKDIR /app
 COPY . .
 RUN python /app/local.py --init
+ENV PYTHONUNBUFFERED=1
+ENV TZ="America/Fortaleza"
 ENTRYPOINT [ "python", "/app/local.py" ]
